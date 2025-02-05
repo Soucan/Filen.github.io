@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8CCSDNPV3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K8CCSDNPV3');
+    </script>
+    <meta property="og:title" content="US4">
+    <meta property="og:description" content="Search the web freely, watch your favorite movies and shows, and play your favorite gąmes with US4">
+    <meta property="og:image" content="/storage/images/logo.png">
+    <meta name="keywords" content="US4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="storage/images/googleclassroom.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="storage/css/index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="left-side">
+        <a href="/">
+            <img src="/storage/images/logo.png" alt="logo">
+        </a>
+    </div>
+<div class="right-side">
+     <script type="text/javascript" src="/storage/js/nav.js"></script>
+</div>
+</div>
+
+
+    <div class="game-title blur-content">US4 | Featured</div>
+    <div class="games-title blur-content" id="randomMessage"></div>
+
+    <div class="game-grid blur-content" id="gameGrid">
+        <div class="game-button">
+            <a href="/pages/iframe?url=/clusterrush/index">
+                <img src="/clusterrush/clusterrush.png" alt="Cluster Rush">
+                <div class="overlay-text">Cluster Rush</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/iframe?url=/basketrandom/index">
+                <img src="/basketrandom/basketrandom.jfif" alt="Basket Random">
+                <div class="overlay-text">Basket Random</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/iframe?url=/SubwaySurfers/proxed">
+                <img src="/SubwaySurfers/subway.jfif" alt="Subway Surfers">
+                <div class="overlay-text">Subway Surfers</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/iframe2?url=/pages/apps/ai">
+                <img src="/pages/apps/images/ai.png" alt="AI">
+                <div class="overlay-text">AI</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/iframe?url=/snowrider3D/index">
+                <img src="/games-repo/snow-rider/snowrider.png" alt="Snow Rider 3D">
+                <div class="overlay-text">Snow Rider 3D</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/movies">
+                <img src="/pages/apps/images/hvtrs8_-hgaptkvg.raeeq.fet_rrgvkeus-iaols-rgtpo_tt.png" alt="Movies">
+                <div class="overlay-text">Movies</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/prox">
+                <img src="/pages/apps/images/download.png" alt="Prցxy">
+                <div class="overlay-text">Prցxy</div>
+            </a>
+        </div>
+    </div>
+    <div class="update-log-overlay" id="updateLog">
+        <div class="update-log-content">
+            <h2>Update Log</h2>
+            <p>Make sure to use link hub - voucan.github.io/link-hub</p>
+            <p>Version 1.73: Auto-about:blank now works with the entire website! </p>
+            <p>Version 1.72: Added Getaway Shootout </p>
+            <p>Version 1.71.1: Iframe2.css fix </p>
+            <p>Version 1.71: Fixed AI and added a sidebar for fullscreen pages (mostly apps)</p>
+            <p>Version 1.7: Organized files, improved some stuff </p>
+        </div>
+    </div>
+
+    <script>
+        const currentVersion = "1.72"; 
+
+        window.onload = function() {
+            const storedVersion = localStorage.getItem('updateLogVersion');
+            if (storedVersion !== currentVersion) {
+                document.getElementById('updateLog').style.display = 'flex';
+                document.querySelectorAll('.blur-content').forEach(function(element) {
+                    element.classList.add('blur-content');
+                });
+            } else {
+                document.getElementById('updateLog').style.display = 'none';
+                document.querySelectorAll('.blur-content').forEach(function(element) {
+                    element.classList.remove('blur-content');
+                });
+            }
+
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('randomMessage').textContent = randomMessage;
+        };
+
+        document.getElementById('updateLog').addEventListener('click', function() {
+            if (!localStorage.getItem('firstVisit')) {
+                localStorage.setItem('firstVisit', 'true');
+
+                const container = document.createElement('div');
+                container.style.position = 'relative';
+                container.style.width = '100%';
+                container.style.height = '100%';
+
+                const closeButton = document.createElement('button');
+                closeButton.textContent = 'X';
+                closeButton.style.position = 'absolute';
+                closeButton.style.top = '10px';
+                closeButton.style.right = '10px';
+                closeButton.style.background = 'black';
+                closeButton.style.color = 'white';
+                closeButton.style.border = 'none';
+                closeButton.style.padding = '5px 10px';
+                closeButton.style.fontSize = '16px';
+                closeButton.style.cursor = 'pointer';
+                closeButton.style.borderRadius = '5px';
+
+                closeButton.addEventListener('click', function() {
+                    container.parentElement.style.display = 'none';
+                });
+
+                const message = document.createElement('div');
+                message.textContent = 'Select Your Site Settings - You can edit this in the settings tab';
+                message.style.textAlign = 'center';
+                message.style.fontFamily = 'Comfortaa, sans-serif';
+                message.style.fontWeight = 'bold';
+                message.style.fontSize = '20px';
+                message.style.marginBottom = '10px';
+
+                const iframe = document.createElement('iframe');
+                iframe.src = '/pages/settings';
+                iframe.style.width = '100%';
+                iframe.style.height = 'calc(100% - 40px)';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = 'inherit';
+
+                container.appendChild(message);
+                container.appendChild(closeButton);
+                container.appendChild(iframe);
+
+                const updateLog = document.getElementById('updateLog');
+                updateLog.innerHTML = '';
+                updateLog.appendChild(container);
+            } else {
+                document.getElementById('updateLog').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('updateLog').style.display = 'none';
+                    document.querySelectorAll('.blur-content').forEach(function(element) {
+                        element.classList.remove('blur-content');
+                    });
+                }, 500);
+                localStorage.setItem('updateLogVersion', currentVersion);
+            }
+        });
+    </script>
+    <script src="storage/js/messages.js"></script>
+    <script type="text/javascript" src="storage/js/settings-1.js"></script>
+    <script type="text/javascript" src="storage/js/notify.js"></script>
+</body>
+</html>
